@@ -25,6 +25,4 @@ internal object DataHolder {
 
     fun getDataByTimeStamp(timeStamp: Long?): ApiInterceptor.Params? =
         data.firstOrNull { it.timeStamp == (timeStamp ?: -1L)}
-
-    fun clearData() = data.clear()
 }
