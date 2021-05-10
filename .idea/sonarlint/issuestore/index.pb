@@ -13,14 +13,10 @@ nApiTrackerLite/src/main/java/com/yggdrasil/apitrackerlite/ui/interceptor/detail
 lApiTrackerLite/src/main/java/com/yggdrasil/apitrackerlite/ui/interceptor/detail/InterceptDetailsViewModel.kt,4/4/44a59d0e7be7e2639639696420e61cdf963d9076
 ù
 mApiTrackerLite/src/main/java/com/yggdrasil/apitrackerlite/ui/interceptor/detail/InterceptorOverallFragment.kt,b/5/b5f1cff73ca4bbbe337a54b039a900737245269f
-ù
-mApiTrackerLite/src/main/java/com/yggdrasil/apitrackerlite/ui/interceptor/detail/InterceptorRequestFragment.kt,7/2/72eb48481a011b46f4fd47af19bd7fdec559f3ad
 ã
 [ApiTrackerLite/src/main/java/com/yggdrasil/apitrackerlite/notification/NotificationUtils.kt,8/f/8fa8901cf33d48c586c3f4e08f911490dc63264b
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
-@
-app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 Q
 !ApiTrackerLite/consumer-rules.pro,4/5/4535c81587361eebcff1b832894957e45f828b90
 Q
