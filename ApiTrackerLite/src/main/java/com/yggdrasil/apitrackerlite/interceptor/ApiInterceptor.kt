@@ -1,7 +1,6 @@
 package com.yggdrasil.apitrackerlite.interceptor
 
 import android.content.Context
-import android.util.Log
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
@@ -11,11 +10,7 @@ import okhttp3.Headers
 import okhttp3.Interceptor
 import okhttp3.Response
 import okio.Buffer
-import org.json.JSONArray
-import org.json.JSONObject
-import org.json.JSONTokener
 import java.util.*
-import kotlin.math.min
 
 
 typealias OnTimeout = () -> Unit
@@ -42,15 +37,6 @@ class ApiInterceptor(private var context: Context?) : Interceptor {
         response.request.body?.writeTo(requestBuffer)
         val requestBody = requestBuffer.readUtf8()
 
-        responseBody?.let {
-            when (val json = JSONTokener(it).nextValue()) {
-                is JSONObject -> interceptJsonObject(json)
-                is JSONArray -> interceptJsonArray(json)
-            }
-        }
-
-        response.receivedResponseAtMillis
-
         context?.let { context ->
             val timeStamp = System.currentTimeMillis()
 
@@ -71,50 +57,6 @@ class ApiInterceptor(private var context: Context?) : Interceptor {
 
             createWorkRequest(context, timeStamp)
         }
-    }
-
-    private fun interceptJsonObject(obj: JSONObject) {
-        obj.keys().forEach { key ->
-            when (obj[key]) {
-                is JSONObject -> interceptJsonObject(obj[key] as JSONObject)
-                is JSONArray -> interceptJsonArray(obj[key] as JSONArray)
-                else -> interceptValue(key, obj[key])
-            }
-        }
-    }
-
-    private fun interceptJsonArray(array: JSONArray) {
-        for (i in 0 until array.length()) {
-            interceptJsonObject(array[i] as JSONObject)
-            when (array[i]) {
-                is JSONObject -> interceptJsonObject(array[i] as JSONObject)
-                is JSONArray -> interceptJsonArray(array[i] as JSONArray)
-                else -> interceptValue(array[i])
-            }
-        }
-    }
-
-    private fun interceptValue(value: Any) {
-        val type: String? = when (value::class.java) {
-            value::class.javaPrimitiveType -> value::class.javaPrimitiveType?.toString()
-            value::class.javaObjectType -> value::class.javaObjectType.toString()
-            else -> "UNKNOWN"
-        }
-        Log.i(type, value.toString())
-    }
-
-    private fun getValueType(value: Any): String {
-        return when (value::class.java) {
-            value::class.javaPrimitiveType -> value::class.javaPrimitiveType?.simpleName ?: "Null"
-            value::class.javaObjectType -> value::class.javaObjectType.simpleName
-            else -> "UNKNOWN"
-        }
-    }
-
-    private fun interceptValue(key: String, value: Any) {
-        Log.i("$key [${getValueType(value)}]", value.toString().also {
-            it.substring(0, min(30, it.length))
-        })
     }
 
     private fun createWorkRequest(context: Context, timeStamp: Long) {
