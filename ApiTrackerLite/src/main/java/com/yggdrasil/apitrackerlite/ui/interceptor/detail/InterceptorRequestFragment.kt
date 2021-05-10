@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.custominterceptorapplication.ui.interceptor.adapter.InterceptorHeaderAdapter
-import com.example.custominterceptorapplication.ui.interceptor.adapter.InterceptorQueryParamsAdapter
+import com.yggdrasil.apitrackerlite.ui.interceptor.adapter.InterceptorHeaderAdapter
+import com.yggdrasil.apitrackerlite.ui.interceptor.adapter.InterceptorQueryParamsAdapter
 import com.yggdrasil.apitrackerlite.databinding.FragmentInterceptorRequestBinding
 import com.yggdrasil.apitrackerlite.interceptor.ApiInterceptor
 import com.yuyh.jsonviewer.library.adapter.JsonViewerAdapter

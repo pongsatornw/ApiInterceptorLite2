@@ -1,4 +1,4 @@
-package com.example.custominterceptorapplication.ui.interceptor.adapter
+package com.yggdrasil.apitrackerlite.ui.interceptor.adapter
 
 import android.annotation.SuppressLint
 import android.net.Uri
@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.custominterceptorapplication.databinding.ViewInterceptorHeaderBinding
-import com.example.custominterceptorapplication.databinding.ViewInterceptorOverallBinding
-import com.example.custominterceptorapplication.databinding.ViewInterceptorTitleBinding
-import com.example.custominterceptorapplication.interceptor.CustomInterceptor
-import com.example.custominterceptorapplication.interceptor.DataHolder
+import com.yggdrasil.apitrackerlite.databinding.ViewInterceptorHeaderBinding
+import com.yggdrasil.apitrackerlite.databinding.ViewInterceptorOverallBinding
+import com.yggdrasil.apitrackerlite.databinding.ViewInterceptorTitleBinding
+import com.yggdrasil.apitrackerlite.interceptor.ApiInterceptor
+import com.yggdrasil.apitrackerlite.interceptor.DataHolder
 
-class InterceptorListAdapter(
+internal class InterceptorListAdapter(
     private val onClickEvent: OnInterceptorClick
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -58,7 +58,7 @@ class InterceptorListAdapter(
 
     class BodyViewHolder(private val binding: ViewInterceptorOverallBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: CustomInterceptor.Params, isLastPosition: Boolean) {
+        fun bind(data: ApiInterceptor.Params, isLastPosition: Boolean) {
             binding.title.text = data.createCodeAndMethod()
             binding.url.text = data.url
             binding.divider.visibility = when (isLastPosition) {
@@ -91,8 +91,8 @@ class InterceptorListAdapter(
                     false
                 )
             ).apply {
-                this.itemView.setOnClickListener { _ ->
-                    onClickEvent.onTitleClick(resultList[this.adapterPosition - 1] as String)
+                this.itemView.setOnClickListener {
+                    onClickEvent.onTitleClick(resultList[this.bindingAdapterPosition - 1] as String)
                 }
             }
             else -> BodyViewHolder(
@@ -100,8 +100,8 @@ class InterceptorListAdapter(
                     LayoutInflater.from(parent.context), parent, false
                 )
             ).apply {
-                this.itemView.setOnClickListener { _ ->
-                    onClickEvent.onBodyClick(resultList[this.adapterPosition - 1] as CustomInterceptor.Params)
+                this.itemView.setOnClickListener {
+                    onClickEvent.onBodyClick(resultList[this.bindingAdapterPosition - 1] as ApiInterceptor.Params)
                 }
             }
         }
@@ -112,7 +112,7 @@ class InterceptorListAdapter(
             is HeaderViewHolder -> holder.bind()
             is TitleViewHolder -> holder.bind(resultList[position - 1] as String)
             is BodyViewHolder -> holder.bind(
-                resultList[position - 1] as CustomInterceptor.Params,
+                resultList[position - 1] as ApiInterceptor.Params,
                 shouldHideLineDivider(position)
             )
         }
@@ -127,7 +127,7 @@ class InterceptorListAdapter(
             0 -> ViewType.Header.value
             else -> when (resultList[position - 1]) {
                 is String -> ViewType.Title.value
-                is CustomInterceptor.Params -> ViewType.Body.value
+                is ApiInterceptor.Params -> ViewType.Body.value
                 else -> throw Exception("Invalid View Type")
             }
         }
@@ -137,6 +137,6 @@ class InterceptorListAdapter(
 
     interface OnInterceptorClick {
         fun onTitleClick(host: String)
-        fun onBodyClick(params: CustomInterceptor.Params)
+        fun onBodyClick(params: ApiInterceptor.Params)
     }
 }

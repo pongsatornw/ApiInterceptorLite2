@@ -1,14 +1,14 @@
-package com.example.custominterceptorapplication.ui.interceptor.adapter
+package com.yggdrasil.apitrackerlite.ui.interceptor.adapter
 
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.custominterceptorapplication.databinding.ViewMapValueBinding
-import com.example.custominterceptorapplication.interceptor.CustomInterceptor
+import com.yggdrasil.apitrackerlite.databinding.ViewMapValueBinding
+import com.yggdrasil.apitrackerlite.interceptor.ApiInterceptor
 import kotlin.math.abs
 
-class InterceptorOverallAdapter :
+internal class InterceptorOverallAdapter :
     RecyclerView.Adapter<InterceptorOverallAdapter.PairDataViewHolder>() {
 
     private val listData = mutableListOf<Pair<String, Any>>()
@@ -21,12 +21,12 @@ class InterceptorOverallAdapter :
         }
     }
 
-    fun updateData(data: CustomInterceptor.Params) {
+    fun updateData(data: ApiInterceptor.Params) {
         extractData(data)
         notifyDataSetChanged()
     }
 
-    private fun extractData(data: CustomInterceptor.Params) {
+    private fun extractData(data: ApiInterceptor.Params) {
         listData.clear()
         val url = Uri.parse(data.url)
         listData.apply {

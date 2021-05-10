@@ -1,13 +1,13 @@
-package com.example.custominterceptorapplication.ui.interceptor
+package com.yggdrasil.apitrackerlite.ui.interceptor
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.custominterceptorapplication.databinding.ActivityInterceptorBinding
-import com.example.custominterceptorapplication.ui.interceptor.adapter.InterceptorAdapter
+import com.yggdrasil.apitrackerlite.ui.interceptor.adapter.InterceptorAdapter
+import com.yggdrasil.apitrackerlite.databinding.ActivityInterceptorBinding
 
-class InterceptorActivity : AppCompatActivity() {
+internal class InterceptorActivity : AppCompatActivity() {
 
     private val adapter = InterceptorAdapter()
 

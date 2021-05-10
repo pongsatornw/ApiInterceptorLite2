@@ -1,15 +1,15 @@
-package com.example.custominterceptorapplication.ui.interceptor.adapter
+package com.yggdrasil.apitrackerlite.ui.interceptor.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.custominterceptorapplication.databinding.ViewInterceptorBodyBinding
-import com.example.custominterceptorapplication.databinding.ViewInterceptorHeaderBinding
-import com.example.custominterceptorapplication.interceptor.CustomInterceptor
-import com.example.custominterceptorapplication.interceptor.DataHolder
+import com.yggdrasil.apitrackerlite.databinding.ViewInterceptorBodyBinding
+import com.yggdrasil.apitrackerlite.databinding.ViewInterceptorHeaderBinding
+import com.yggdrasil.apitrackerlite.interceptor.ApiInterceptor
+import com.yggdrasil.apitrackerlite.interceptor.DataHolder
 
-class InterceptorAdapter :
+internal class InterceptorAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val list get() = DataHolder.getData()
@@ -25,7 +25,7 @@ class InterceptorAdapter :
 
     class BodyViewHolder(private val binding: ViewInterceptorBodyBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: CustomInterceptor.Params) {
+        fun bind(data: ApiInterceptor.Params) {
             binding.title.text = data.createCodeAndMethod()
             binding.url.text = data.url
             binding.header.text = data.headers.toString()

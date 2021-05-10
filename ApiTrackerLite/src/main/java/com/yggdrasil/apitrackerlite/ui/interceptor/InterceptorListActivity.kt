@@ -4,13 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.custominterceptorapplication.ui.interceptor.adapter.InterceptorListAdapter
+import com.yggdrasil.apitrackerlite.ui.interceptor.adapter.InterceptorListAdapter
 import com.yggdrasil.apitrackerlite.databinding.ActivityInterceptorOverallBinding
 import com.yggdrasil.apitrackerlite.interceptor.ApiInterceptor
 import com.yggdrasil.apitrackerlite.interceptor.DataHolder
 import com.yggdrasil.apitrackerlite.ui.interceptor.detail.InterceptorDetailsActivity
 
-class InterceptorListActivity : AppCompatActivity(), InterceptorListAdapter.OnInterceptorClick {
+internal class InterceptorListActivity : AppCompatActivity(), InterceptorListAdapter.OnInterceptorClick {
 
     private val adapter =
         InterceptorListAdapter(this)

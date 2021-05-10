@@ -1,17 +1,17 @@
-package com.example.custominterceptorapplication.ui.interceptor.adapter
+package com.yggdrasil.apitrackerlite.ui.interceptor.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.custominterceptorapplication.databinding.ViewInterceptorTitleBinding
-import com.example.custominterceptorapplication.databinding.ViewMapValueBinding
-import com.example.custominterceptorapplication.interceptor.CustomInterceptor
+import com.yggdrasil.apitrackerlite.databinding.ViewInterceptorTitleBinding
+import com.yggdrasil.apitrackerlite.databinding.ViewMapValueBinding
+import com.yggdrasil.apitrackerlite.interceptor.ApiInterceptor
 import okhttp3.internal.http2.Header
 import okhttp3.internal.toHeaderList
 import java.nio.charset.Charset
 
-class InterceptorHeaderAdapter :
+internal class InterceptorHeaderAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val listData = mutableListOf<Header>()
@@ -38,12 +38,12 @@ class InterceptorHeaderAdapter :
         }
     }
 
-    fun updateData(data: CustomInterceptor.Params) {
+    fun updateData(data: ApiInterceptor.Params) {
         extractData(data)
         notifyDataSetChanged()
     }
 
-    private fun extractData(data: CustomInterceptor.Params) {
+    private fun extractData(data: ApiInterceptor.Params) {
         listData.clear()
 
         listData.addAll(data.headers.toHeaderList())
