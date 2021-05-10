@@ -17,8 +17,8 @@ import org.json.JSONTokener
 import java.util.*
 import kotlin.math.min
 
-typealias OnTimeout = () -> Unit
 
+typealias OnTimeout = () -> Unit
 
 // Pass application context here.
 class ApiInterceptor(private var context: Context?) : Interceptor {
