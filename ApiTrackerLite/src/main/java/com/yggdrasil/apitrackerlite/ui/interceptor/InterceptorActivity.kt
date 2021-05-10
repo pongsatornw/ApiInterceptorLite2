@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.yggdrasil.apitrackerlite.ui.interceptor.adapter.InterceptorAdapter
 import com.yggdrasil.apitrackerlite.databinding.ActivityInterceptorBinding
 
-internal class InterceptorActivity : AppCompatActivity() {
+class InterceptorActivity : AppCompatActivity() {
 
     private val adapter = InterceptorAdapter()
 

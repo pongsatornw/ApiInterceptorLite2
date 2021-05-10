@@ -9,7 +9,7 @@ import com.yggdrasil.apitrackerlite.databinding.ViewInterceptorTitleBinding
 import com.yggdrasil.apitrackerlite.databinding.ViewMapValueBinding
 import com.yggdrasil.apitrackerlite.interceptor.ApiInterceptor
 
-internal class InterceptorQueryParamsAdapter :
+class InterceptorQueryParamsAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val listData = mutableListOf<Pair<String, String>>()

@@ -10,7 +10,7 @@ import com.yggdrasil.apitrackerlite.interceptor.ApiInterceptor
 import com.yggdrasil.apitrackerlite.interceptor.DataHolder
 import com.yggdrasil.apitrackerlite.ui.interceptor.detail.InterceptorDetailsActivity
 
-internal class InterceptorListActivity : AppCompatActivity(), InterceptorListAdapter.OnInterceptorClick {
+class InterceptorListActivity : AppCompatActivity(), InterceptorListAdapter.OnInterceptorClick {
 
     private val adapter =
         InterceptorListAdapter(this)

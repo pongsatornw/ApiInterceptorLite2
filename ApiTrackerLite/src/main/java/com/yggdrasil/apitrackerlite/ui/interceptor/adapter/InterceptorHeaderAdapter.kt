@@ -11,7 +11,7 @@ import okhttp3.internal.http2.Header
 import okhttp3.internal.toHeaderList
 import java.nio.charset.Charset
 
-internal class InterceptorHeaderAdapter :
+class InterceptorHeaderAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val listData = mutableListOf<Header>()
