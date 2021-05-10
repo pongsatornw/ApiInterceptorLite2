@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.MergeAdapter
 import com.yggdrasil.apitrackerlite.ui.interceptor.adapter.InterceptorHeaderAdapter
 import com.yggdrasil.apitrackerlite.ui.interceptor.adapter.InterceptorQueryParamsAdapter
 import com.yggdrasil.apitrackerlite.databinding.FragmentInterceptorRequestBinding
@@ -23,7 +23,7 @@ class InterceptorRequestFragment : Fragment() {
     private val headerAdapter: InterceptorHeaderAdapter = InterceptorHeaderAdapter()
     private val queryParamsAdapter: InterceptorQueryParamsAdapter = InterceptorQueryParamsAdapter()
     private lateinit var bodyAdapter: JsonViewerAdapter
-    private lateinit var adapter: ConcatAdapter
+    private lateinit var adapter: MergeAdapter
 
     companion object {
 
@@ -57,9 +57,9 @@ class InterceptorRequestFragment : Fragment() {
 
         adapter = try {
             bodyAdapter = JsonViewerAdapter(params.requestBody ?: "")
-            ConcatAdapter(headerAdapter, queryParamsAdapter, bodyAdapter)
+            MergeAdapter(headerAdapter, queryParamsAdapter, bodyAdapter)
         } catch (ex: IllegalArgumentException) {
-            ConcatAdapter(headerAdapter, queryParamsAdapter)
+            MergeAdapter(headerAdapter, queryParamsAdapter)
         }
 
         binding.recyclerView.apply {
