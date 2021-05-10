@@ -12,7 +12,7 @@ import com.yggdrasil.apitrackerlite.databinding.ViewInterceptorTitleBinding
 import com.yggdrasil.apitrackerlite.interceptor.ApiInterceptor
 import com.yggdrasil.apitrackerlite.interceptor.DataHolder
 
-class InterceptorListAdapter(
+internal class InterceptorListAdapter(
     private val onClickEvent: OnInterceptorClick
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

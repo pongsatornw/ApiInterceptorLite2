@@ -9,7 +9,7 @@ import com.yggdrasil.apitrackerlite.databinding.ViewInterceptorHeaderBinding
 import com.yggdrasil.apitrackerlite.interceptor.ApiInterceptor
 import com.yggdrasil.apitrackerlite.interceptor.DataHolder
 
-class InterceptorAdapter :
+internal class InterceptorAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val list get() = DataHolder.getData()

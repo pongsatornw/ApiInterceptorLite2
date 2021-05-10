@@ -13,7 +13,7 @@ import com.yggdrasil.apitrackerlite.interceptor.ApiInterceptor
 import com.yggdrasil.apitrackerlite.interceptor.DataHolder
 import com.yggdrasil.apitrackerlite.ui.interceptor.InterceptorListActivity
 
-object NotificationUtils {
+internal object NotificationUtils {
 
     private const val CHANNEL_ID = "NOTIFICATION_API_LOG"
     private const val CHANNEL_NAME = "NOTIFICATION_API_LOG_FOR_DEBUG"

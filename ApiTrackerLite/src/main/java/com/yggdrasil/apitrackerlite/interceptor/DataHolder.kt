@@ -3,7 +3,7 @@ package com.yggdrasil.apitrackerlite.interceptor
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-object DataHolder {
+internal object DataHolder {
 
     private val data = mutableListOf<ApiInterceptor.Params>()
 

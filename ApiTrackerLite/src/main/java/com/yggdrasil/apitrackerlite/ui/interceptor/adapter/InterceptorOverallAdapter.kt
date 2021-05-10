@@ -8,7 +8,7 @@ import com.yggdrasil.apitrackerlite.databinding.ViewMapValueBinding
 import com.yggdrasil.apitrackerlite.interceptor.ApiInterceptor
 import kotlin.math.abs
 
-class InterceptorOverallAdapter :
+internal class InterceptorOverallAdapter :
     RecyclerView.Adapter<InterceptorOverallAdapter.PairDataViewHolder>() {
 
     private val listData = mutableListOf<Pair<String, Any>>()
