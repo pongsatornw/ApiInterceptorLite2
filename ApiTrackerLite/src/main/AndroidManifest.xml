@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yggdrasil.apitrackerlite">
 
-    <application android:name=".ApiTrackerApplication">
+    <application>
         <activity android:name=".ui.interceptor.InterceptorActivity" />
         <activity android:name=".ui.interceptor.InterceptorListActivity" />
         <activity android:name=".ui.interceptor.detail.InterceptorDetailsActivity" />
