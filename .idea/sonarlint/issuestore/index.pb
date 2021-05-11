@@ -3,8 +3,6 @@ Y
 )app/src/main/res/layout/activity_main.xml,7/6/76b07e40f24cce093536731477540f12e7da3cb6
 r
 Bapp/src/main/java/com/yggdrasil/apiinterceptorlite/MainActivity.kt,8/b/8bec290c003df4565260c8e8890815a2604275c0
-I
-ApiTrackerLite/.gitignore,c/1/c1a79eec29bdd12da23ba5f67cf1997a22c0c414
 ¡
 qApiTrackerLite/src/main/java/com/yggdrasil/apitrackerlite/ui/interceptor/detail/InterceptorDetailsPagerAdapter.kt,2/4/24a60f0bb009da7d1ce9fddf91678d7ba602ee3f
 œ
