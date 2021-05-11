@@ -8,6 +8,7 @@ import com.yggdrasil.apitrackerlite.notification.NotificationUtils
 import com.yggdrasil.apitrackerlite.workmanager.InterceptWorker
 import okhttp3.Headers
 import okhttp3.Interceptor
+import okhttp3.MultipartBody
 import okhttp3.Response
 import okio.Buffer
 import java.util.*
@@ -24,7 +25,15 @@ class ApiInterceptor(private var context: Context?) : Interceptor {
 
         interceptResponse(response)
 
-        return chain.proceed(request.newBuilder().build())
+        (request.body as? MultipartBody)?.let {
+            request.newBuilder().url("").post(it)
+        }
+
+        return chain.proceed((request.body as? MultipartBody)?.let {
+            request.newBuilder().url(request.url).post(it).build()
+        } ?: run {
+            request.newBuilder().build()
+        })
     }
 
     private fun interceptResponse(response: Response) {
