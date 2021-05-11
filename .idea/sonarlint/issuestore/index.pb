@@ -7,12 +7,8 @@ I
 ApiTrackerLite/.gitignore,c/1/c1a79eec29bdd12da23ba5f67cf1997a22c0c414
 °
 qApiTrackerLite/src/main/java/com/yggdrasil/apitrackerlite/ui/interceptor/detail/InterceptorDetailsPagerAdapter.kt,2/4/24a60f0bb009da7d1ce9fddf91678d7ba602ee3f
-û
-nApiTrackerLite/src/main/java/com/yggdrasil/apitrackerlite/ui/interceptor/detail/InterceptorResponseFragment.kt,e/1/e146f2227132078e905ac5c9d5008d5d808552e0
 ú
 lApiTrackerLite/src/main/java/com/yggdrasil/apitrackerlite/ui/interceptor/detail/InterceptDetailsViewModel.kt,4/4/44a59d0e7be7e2639639696420e61cdf963d9076
-ù
-mApiTrackerLite/src/main/java/com/yggdrasil/apitrackerlite/ui/interceptor/detail/InterceptorOverallFragment.kt,b/5/b5f1cff73ca4bbbe337a54b039a900737245269f
 ã
 [ApiTrackerLite/src/main/java/com/yggdrasil/apitrackerlite/notification/NotificationUtils.kt,8/f/8fa8901cf33d48c586c3f4e08f911490dc63264b
 <

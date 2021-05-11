@@ -53,4 +53,9 @@ class InterceptorOverallFragment : Fragment() {
             adapter.updateData(it)
         }
     }
+
+    override fun onDetach() {
+        super.onDetach()
+        viewModel.interceptorObject.removeObservers(this)
+    }
 }

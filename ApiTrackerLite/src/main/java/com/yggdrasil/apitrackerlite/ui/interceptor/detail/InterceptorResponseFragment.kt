@@ -59,4 +59,9 @@ class InterceptorResponseFragment : Fragment() {
             })
         }
     }
+
+    override fun onDetach() {
+        super.onDetach()
+        viewModel.interceptorObject.removeObservers(this)
+    }
 }

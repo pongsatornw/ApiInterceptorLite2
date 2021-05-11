@@ -69,4 +69,9 @@ class InterceptorRequestFragment : Fragment() {
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         }
     }
+
+    override fun onDetach() {
+        super.onDetach()
+        viewModel.interceptorObject.removeObservers(this)
+    }
 }

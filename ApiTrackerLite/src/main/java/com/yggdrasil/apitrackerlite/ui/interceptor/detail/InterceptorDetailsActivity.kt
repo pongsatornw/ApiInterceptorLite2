@@ -72,9 +72,7 @@ class InterceptorDetailsActivity : AppCompatActivity() {
     }
 
     private fun observeEvent() {
-        viewModel.interceptorObject.observe(this) {
-            println("observeEvent_Activity")
-        }
+        viewModel.interceptorObject.observe(this) {}
     }
 
     private fun setViewPager() {
@@ -138,5 +136,10 @@ class InterceptorDetailsActivity : AppCompatActivity() {
             }
             binding.viewPager.currentItem = position
         }.attach()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.interceptorObject.removeObservers(this)
     }
 }
